@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — WeFitKit Gym Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root { --orange:#FF8A00; --black:#0D0D0D; --dark:#141414; --dark2:#1B1B1B; --grey:#333333; --white:#FFFFFF; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { background-color:var(--black); color:var(--white); font-family:'Inter',sans-serif; line-height:1.7; -webkit-font-smoothing:antialiased; }
+  .page-bg { position:fixed; inset:0; z-index:-1; background:url('brand_assests/Website Base/Website Pics/WeFitKit Background/WhatsApp Image 2026-05-29 at 22.16.17.jpeg') center center / cover no-repeat; pointer-events:none; }
+  h1,h2,h3,h4 { font-family:'Manrope',sans-serif; font-weight:800; line-height:1.1; letter-spacing:-0.03em; }
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(13,13,13,0.96); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); }
+  .nav-inner { max-width:1280px; margin:0 auto; padding:0 32px; height:72px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo img { height:48px; width:auto; mix-blend-mode:screen; }
+  img[src*="WeFitKit Logo"] { mix-blend-mode:screen; }
+  .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+  .nav-links a { font-family:'Manrope',sans-serif; font-weight:600; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.65); text-decoration:none; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--white); }
+  .nav-links a.active { color:var(--orange); }
+  .btn-primary { display:inline-flex; align-items:center; gap:8px; background:var(--orange); color:var(--black); font-family:'Manrope',sans-serif; font-weight:800; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; padding:13px 28px; border:none; cursor:pointer; transition:background 0.2s,transform 0.15s; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px)); }
+  .btn-primary:hover { background:#ff9f2e; transform:translateY(-1px); }
+  .btn-secondary { display:inline-flex; align-items:center; gap:8px; background:transparent; color:var(--white); font-family:'Manrope',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; padding:12px 28px; border:1.5px solid rgba(255,255,255,0.22); cursor:pointer; transition:border-color 0.2s,transform 0.15s; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px)); }
+  .btn-secondary:hover { border-color:rgba(255,255,255,0.6); transform:translateY(-1px); }
+  .section { padding:96px 0; }
+  .section-inner { max-width:1280px; margin:0 auto; padding:0 32px; }
+  .section-label { display:inline-flex; align-items:center; gap:10px; font-family:'Manrope',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--orange); margin-bottom:18px; }
+  .section-label::before { content:''; display:block; width:24px; height:2px; background:var(--orange); }
+  .section-title { font-size:clamp(24px,2.8vw,38px); font-weight:900; letter-spacing:-0.04em; text-transform:uppercase; }
+  .section-subtitle { font-size:16px; line-height:1.75; color:rgba(255,255,255,0.5); max-width:480px; font-weight:400; margin-top:12px; }
+
+  /* PAGE HERO */
+  .page-hero { padding: 160px 0 80px; background: rgba(13,13,13,0.40); position: relative; overflow: hidden; }
+  .page-hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--orange); }
+  .page-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,138,0,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,138,0,0.02) 1px,transparent 1px); background-size:80px 80px; pointer-events:none; }
+  .page-hero-inner { max-width:1280px; margin:0 auto; padding:0 32px; }
+  .page-hero h1 { font-size:clamp(40px,5.5vw,72px); font-weight:900; letter-spacing:-0.045em; max-width:700px; margin-bottom:20px; }
+  .page-hero h1 span { color:var(--orange); }
+  .page-hero p { font-size:17px; line-height:1.75; color:rgba(255,255,255,0.55); max-width:500px; margin-bottom:40px; }
+  .page-hero-eyebrow { display:inline-flex; align-items:center; gap:12px; font-family:'Manrope',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--orange); margin-bottom:24px; }
+  .page-hero-eyebrow::before { content:''; display:block; width:36px; height:2px; background:var(--orange); }
+
+  /* SERVICES LIST */
+  .services-list { display:flex; flex-direction:column; gap:0; border:1px solid rgba(255,255,255,0.05); }
+  .service-row { display:grid; grid-template-columns:80px 1fr 1fr; align-items:start; border-bottom:1px solid rgba(255,255,255,0.05); transition:background 0.2s; }
+  .service-row:last-child { border-bottom:none; }
+  .service-row:hover { background:var(--dark2); }
+  .service-row-num { padding:40px 24px; font-family:'Manrope',sans-serif; font-weight:900; font-size:11px; letter-spacing:0.14em; color:var(--orange); opacity:0.5; border-right:1px solid rgba(255,255,255,0.05); }
+  .service-row-main { padding:40px 40px; border-right:1px solid rgba(255,255,255,0.05); }
+  .service-row-title { font-family:'Manrope',sans-serif; font-weight:800; font-size:20px; letter-spacing:-0.02em; color:var(--white); margin-bottom:10px; }
+  .service-row-desc { font-size:14px; line-height:1.65; color:rgba(255,255,255,0.45); max-width:420px; }
+  .service-row-details { padding:40px 40px; }
+  .service-detail-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .service-detail-list li { display:flex; align-items:center; gap:10px; font-size:14px; color:rgba(255,255,255,0.5); }
+  .service-detail-list li::before { content:''; width:6px; height:6px; background:var(--orange); flex-shrink:0; }
+
+  /* SECTORS */
+  .sectors-section { background:rgba(27,27,27,0.40); }
+  .sectors-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.05); margin-top:48px; border:1px solid rgba(255,255,255,0.05); }
+  .sector-item { background:var(--dark2); padding:32px 28px; transition:background 0.2s; }
+  .sector-item:hover { background:var(--grey); }
+  .sector-item-title { font-family:'Manrope',sans-serif; font-weight:800; font-size:15px; letter-spacing:-0.01em; color:var(--white); }
+  .sector-item-dot { width:8px; height:8px; background:var(--orange); display:inline-block; margin-right:12px; }
+
+  /* PROCESS */
+  .process-section { background:rgba(13,13,13,0.40); }
+  .process-steps { display:grid; grid-template-columns:repeat(6,1fr); gap:0; margin-top:56px; border:1px solid rgba(255,255,255,0.05); }
+  .process-step { padding:36px 24px; border-right:1px solid rgba(255,255,255,0.05); position:relative; }
+  .process-step:last-child { border-right:none; }
+  .process-step-num { font-family:'Manrope',sans-serif; font-weight:900; font-size:32px; letter-spacing:-0.04em; color:rgba(255,138,0,0.12); margin-bottom:20px; line-height:1; }
+  .process-step-title { font-family:'Manrope',sans-serif; font-weight:800; font-size:14px; letter-spacing:-0.01em; color:var(--white); }
+  .process-step-arrow { position:absolute; top:50%; right:-1px; transform:translateY(-50%) translateX(50%); width:20px; height:20px; background:var(--black); border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; z-index:1; }
+  .process-step:last-child .process-step-arrow { display:none; }
+  .process-step-arrow::after { content:'›'; color:var(--orange); font-size:14px; line-height:1; }
+
+  /* PROJECTS */
+  .projects-section { background:rgba(27,27,27,0.40); }
+  .projects-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-top:48px; }
+  .project-card { position:relative; overflow:hidden; background:var(--grey); height:280px; }
+  .project-card img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; filter:grayscale(15%); }
+  .project-card:hover img { transform:scale(1.04); }
+  .project-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(13,13,13,0.40) 0%,transparent 60%); }
+  .project-info { position:absolute; bottom:0; left:0; right:0; padding:22px; }
+  .project-type { font-family:'Manrope',sans-serif; font-weight:700; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--orange); margin-bottom:4px; }
+  .project-name { font-family:'Manrope',sans-serif; font-weight:800; font-size:15px; letter-spacing:-0.02em; color:var(--white); }
+
+  /* CTA */
+  .cta-section { background:rgba(13,13,13,0.40); border-top:1px solid rgba(255,255,255,0.05); padding:96px 0; }
+  .cta-inner { max-width:1280px; margin:0 auto; padding:0 32px; display:flex; justify-content:space-between; align-items:center; gap:48px; }
+  .cta-text h2 { font-size:clamp(30px,4vw,48px); font-weight:900; letter-spacing:-0.04em; }
+  .cta-text p { font-size:16px; color:rgba(255,255,255,0.45); margin-top:8px; }
+  .cta-actions { display:flex; gap:12px; flex-shrink:0; flex-wrap:wrap; }
+
+  footer { background:rgba(27,27,27,0.50); border-top:1px solid rgba(255,255,255,0.05); padding:64px 0 32px; }
+  .footer-inner { max-width:1280px; margin:0 auto; padding:0 32px; }
+  .footer-top { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:48px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.05); }
+  .footer-brand p { font-size:14px; line-height:1.7; color:rgba(255,255,255,0.4); margin-top:20px; max-width:280px; }
+  .footer-col-title { font-family:'Manrope',sans-serif; font-weight:800; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); margin-bottom:20px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .footer-links a { font-size:14px; color:rgba(255,255,255,0.4); text-decoration:none; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--white); }
+  .footer-contact-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:12px; }
+  .footer-contact-item svg { width:14px; height:14px; stroke:var(--orange); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; margin-top:3px; }
+  .footer-contact-item span { font-size:14px; color:rgba(255,255,255,0.4); line-height:1.5; }
+  .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:24px; flex-wrap:wrap; gap:16px; }
+  .footer-copy { font-size:12px; color:rgba(255,255,255,0.22); }
+
+  @media (max-width:1024px) {
+    .nav-links,.nav-cta { display:none; }
+    .service-row { grid-template-columns:60px 1fr; }
+    .service-row-details { display:none; }
+    .process-steps { grid-template-columns:repeat(3,1fr); }
+    .projects-grid { grid-template-columns:1fr 1fr; }
+    .sectors-grid { grid-template-columns:repeat(2,1fr); }
+    .footer-top { grid-template-columns:1fr 1fr; }
+    .cta-inner { flex-direction:column; align-items:flex-start; }
+  }
+  @media (max-width:640px) {
+    .section { padding:56px 0; }
+    .section-inner { padding:0 20px; }
+    .page-hero-inner { padding:0 20px; }
+    .service-row { grid-template-columns:1fr; }
+    .service-row-num { border-right:none; border-bottom:none; padding:24px 20px 0; }
+    .service-row-main { padding:12px 20px 24px; border-right:none; }
+    .process-steps { grid-template-columns:1fr 1fr; }
+    .projects-grid { grid-template-columns:1fr; }
+    .sectors-grid { grid-template-columns:1fr; }
+    .footer-top { grid-template-columns:1fr; }
+    .cta-inner { padding:0 20px; }
+    .footer-inner { padding:0 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page-bg"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="brand_assests/WeFitKit Logo.jpeg" alt="WeFitKit"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="index.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn-primary nav-cta">Get A Quote</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">What We Do</div>
+    <h1>Complete <span>Fitness</span><br>Solutions</h1>
+    <p>End-to-end commercial gym installation, relocation and project delivery services across the UK.</p>
+    <a href="contact.html" class="btn-primary">Get A Quote</a>
+  </div>
+</div>
+
+<section class="section" style="background:rgba(13,13,13,0.40);padding-top:64px;">
+  <div class="section-inner">
+    <div class="section-label">Our Services</div>
+    <h2 class="section-title">What We Deliver</h2>
+    <p class="section-subtitle">Seven specialist service areas — all delivered with the same commitment to quality.</p>
+    <div style="margin-top:48px;">
+      <div class="services-list">
+        <div class="service-row">
+          <div class="service-row-num">01</div>
+          <div class="service-row-main">
+            <div class="service-row-title">Commercial Gym Installation</div>
+            <div class="service-row-desc">Full turnkey installations for commercial gyms and fitness facilities. We manage every aspect of the installation from delivery to final placement.</div>
+          </div>
+          <div class="service-row-details">
+            <ul class="service-detail-list">
+              <li>Full turnkey delivery</li>
+              <li>Commercial-scale projects</li>
+              <li>Equipment placement & layout</li>
+              <li>Anchor & fixings installation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-row">
+          <div class="service-row-num">02</div>
+          <div class="service-row-main">
+            <div class="service-row-title">Gym Flooring</div>
+            <div class="service-row-desc">Premium flooring solutions including lifting platforms, rubber matting, performance turf and specialist surfaces for any gym environment.</div>
+          </div>
+          <div class="service-row-details">
+            <ul class="service-detail-list">
+              <li>Rubber flooring installation</li>
+              <li>Olympic lifting platforms</li>
+              <li>Performance turf installation</li>
+              <li>Specialist surface fitting</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-row">
+          <div class="service-row-num">03</div>
+          <div class="service-row-main">
+            <div class="service-row-title">Equipment Relocation & Extraction</div>
+            <div class="service-row-desc">Safe, professional dismantling, transportation and reinstallation of commercial gym equipment. Minimising downtime for your business throughout.</div>
+          </div>
+          <div class="service-row-details">
+            <ul class="service-detail-list">
+              <li>Safe equipment dismantling</li>
+              <li>Nationwide transportation</li>
+              <li>Full reinstallation service</li>
+              <li>Minimal business disruption</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-row">
+          <div class="service-row-num">04</div>
+          <div class="service-row-main">
+            <div class="service-row-title">Storage & Logistics</div>
+            <div class="service-row-desc">Secure short and long-term storage alongside nationwide logistics support. Equipment handled with care from collection through to final delivery.</div>
+          </div>
+          <div class="service-row-details">
+            <ul class="service-detail-list">
+              <li>Secure equipment storage</li>
+              <li>Nationwide delivery network</li>
+              <li>Inventory management</li>
+              <li>Flexible storage terms</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-row">
+          <div class="service-row-num">05</div>
+          <div class="service-row-main">
+            <div class="service-row-title">Equipment Assembly</div>
+            <div class="service-row-desc">Professional on-site assembly of commercial fitness equipment from all major manufacturers. Done right, first time, every time.</div>
+          </div>
+          <div class="service-row-details">
+            <ul class="service-detail-list">
+              <li>All major brands covered</li>
+              <li>Commercial equipment specialists</li>
+              <li>Post-assembly quality checks</li>
+              <li>Safety compliance</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-row">
+          <div class="service-row-num">06</div>
+          <div class="service-row-main">
+            <div class="service-row-title">Maintenance & Support</div>
+            <div class="service-row-desc">Ongoing servicing and maintenance to keep your facility performing at its best. Planned maintenance programmes and reactive callout support.</div>
+          </div>
+          <div class="service-row-details">
+            <ul class="service-detail-list">
+              <li>Planned maintenance programmes</li>
+              <li>Reactive callout support</li>
+              <li>Equipment inspection reports</li>
+              <li>Parts sourcing & fitting</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service-row">
+          <div class="service-row-num">07</div>
+          <div class="service-row-main">
+            <div class="service-row-title">Project Management</div>
+            <div class="service-row-desc">End-to-end project planning and delivery. We coordinate every workstream so your project runs on time, on budget and to the highest standard.</div>
+          </div>
+          <div class="service-row-details">
+            <ul class="service-detail-list">
+              <li>Full project coordination</li>
+              <li>Timeline & budget management</li>
+              <li>Supplier management</li>
+              <li>Progress reporting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section sectors-section">
+  <div class="section-inner">
+    <div class="section-label">Who We Work With</div>
+    <h2 class="section-title">Sectors We Serve</h2>
+    <div class="sectors-grid">
+      <div class="sector-item"><span class="sector-item-dot"></span><span class="sector-item-title">Commercial Gyms</span></div>
+      <div class="sector-item"><span class="sector-item-dot"></span><span class="sector-item-title">Hotels & Hospitality</span></div>
+      <div class="sector-item"><span class="sector-item-dot"></span><span class="sector-item-title">PT Studios</span></div>
+      <div class="sector-item"><span class="sector-item-dot"></span><span class="sector-item-title">Schools & Universities</span></div>
+      <div class="sector-item"><span class="sector-item-dot"></span><span class="sector-item-title">Residential Developments</span></div>
+      <div class="sector-item"><span class="sector-item-dot"></span><span class="sector-item-title">Corporate Wellness</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section process-section">
+  <div class="section-inner">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-title">Our Process</h2>
+    <p class="section-subtitle">A clear, professional process from first conversation to ongoing support.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-step-num">01</div>
+        <div class="process-step-title">Consultation</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.6;">We understand your project requirements in full.</p>
+        <div class="process-step-arrow"></div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">02</div>
+        <div class="process-step-title">Planning</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.6;">Detailed planning, scheduling and resource allocation.</p>
+        <div class="process-step-arrow"></div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">03</div>
+        <div class="process-step-title">Logistics</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.6;">Equipment procurement, delivery and on-site coordination.</p>
+        <div class="process-step-arrow"></div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">04</div>
+        <div class="process-step-title">Installation</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.6;">Professional installation by our experienced team.</p>
+        <div class="process-step-arrow"></div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">05</div>
+        <div class="process-step-title">Completion</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.6;">Final checks, sign-off and handover to your team.</p>
+        <div class="process-step-arrow"></div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">06</div>
+        <div class="process-step-title">Ongoing Support</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.6;">Continued maintenance and support after handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section projects-section">
+  <div class="section-inner">
+    <div class="section-label">Our Work</div>
+    <h2 class="section-title">Delivering Results Nationwide</h2>
+  </div>
+  <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="brand_assests/Website Base/Website Pics/WhatsApp Image 2026-05-29 at 21.38.39 (1).jpeg" alt="PT Gym Liverpool">
+        <div class="project-overlay"></div>
+        <div class="project-info">
+          <div class="project-type">Liverpool</div>
+          <div class="project-name">Personal Trainer Gym</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="brand_assests/Website Base/Website Pics/WhatsApp Image 2026-05-29 at 21.38.40 (2).jpeg" alt="Home Gym Cambridge">
+        <div class="project-overlay"></div>
+        <div class="project-info">
+          <div class="project-type">Cambridge</div>
+          <div class="project-name">Home Gym</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="brand_assests/Website Base/Website Pics/WhatsApp Image 2026-05-29 at 21.38.39 (3).jpeg" alt="Office Gym Bournemouth">
+        <div class="project-overlay"></div>
+        <div class="project-info">
+          <div class="project-type">Bournemouth</div>
+          <div class="project-name">Office Gym</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>Ready To Start<br>Your Project?</h2>
+      <p>Get in touch today for a free consultation and quotation.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-primary">Get A Quote</a>
+      <a href="contact.html" class="btn-secondary">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="brand_assests/WeFitKit Logo.jpeg" alt="WeFitKit" style="height:44px;width:auto;">
+        <p>Specialist gym installation and project delivery across the UK.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Commercial Installation</a></li>
+          <li><a href="services.html">Gym Flooring</a></li>
+          <li><a href="services.html">Equipment Relocation</a></li>
+          <li><a href="services.html">Project Management</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.32 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 5.67 5.67l1.95-1.36a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>0161 660 1002</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@wefitkit.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 WeFitKit Ltd. All Rights Reserved.</span>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;">
+        <a href="privacy-policy.html" style="font-size:12px;color:rgba(255,255,255,0.22);text-decoration:none;">Privacy Policy</a>
+        <a href="terms-and-conditions.html" style="font-size:12px;color:rgba(255,255,255,0.22);text-decoration:none;">Terms &amp; Conditions</a>
+        <a href="cookie-policy.html" style="font-size:12px;color:rgba(255,255,255,0.22);text-decoration:none;">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

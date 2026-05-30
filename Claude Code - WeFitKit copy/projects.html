@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — WeFitKit Gym Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root { --orange:#FF8A00; --black:#0D0D0D; --dark:#141414; --dark2:#1B1B1B; --grey:#333333; --white:#FFFFFF; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { background-color:var(--black); color:var(--white); font-family:'Inter',sans-serif; line-height:1.7; -webkit-font-smoothing:antialiased; }
+  .page-bg { position:fixed; inset:0; z-index:-1; background:url('brand_assests/Website Base/Website Pics/WeFitKit Background/WhatsApp Image 2026-05-29 at 22.16.17.jpeg') center center / cover no-repeat; pointer-events:none; }
+  h1,h2,h3,h4 { font-family:'Manrope',sans-serif; font-weight:800; line-height:1.1; letter-spacing:-0.03em; }
+  img[src*="WeFitKit Logo"] { mix-blend-mode:screen; }
+
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(13,13,13,0.96); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); }
+  .nav-inner { max-width:1280px; margin:0 auto; padding:0 32px; height:72px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo img { height:48px; width:auto; mix-blend-mode:screen; }
+  .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+  .nav-links a { font-family:'Manrope',sans-serif; font-weight:600; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.65); text-decoration:none; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--white); }
+  .nav-links a.active { color:var(--orange); }
+  .btn-primary { display:inline-flex; align-items:center; gap:8px; background:var(--orange); color:var(--black); font-family:'Manrope',sans-serif; font-weight:800; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; padding:13px 28px; border:none; cursor:pointer; transition:background 0.2s,transform 0.15s; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px)); }
+  .btn-primary:hover { background:#ff9f2e; transform:translateY(-1px); }
+  .btn-secondary { display:inline-flex; align-items:center; gap:8px; background:transparent; color:var(--white); font-family:'Manrope',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; padding:12px 28px; border:1.5px solid rgba(255,255,255,0.22); cursor:pointer; transition:border-color 0.2s,transform 0.15s; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px)); }
+  .btn-secondary:hover { border-color:rgba(255,255,255,0.6); transform:translateY(-1px); }
+  .section { padding:96px 0; }
+  .section-inner { max-width:1280px; margin:0 auto; padding:0 32px; }
+  .section-label { display:inline-flex; align-items:center; gap:10px; font-family:'Manrope',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--orange); margin-bottom:18px; }
+  .section-label::before { content:''; display:block; width:24px; height:2px; background:var(--orange); }
+  .section-title { font-size:clamp(24px,2.8vw,38px); font-weight:900; letter-spacing:-0.04em; text-transform:uppercase; }
+
+  /* PAGE HERO */
+  .page-hero { padding:160px 0 80px; background:rgba(13,13,13,0.40); position:relative; overflow:hidden; }
+  .page-hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--orange); }
+  .page-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,138,0,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,138,0,0.02) 1px,transparent 1px); background-size:80px 80px; pointer-events:none; }
+  .page-hero-inner { max-width:1280px; margin:0 auto; padding:0 32px; }
+  .page-hero h1 { font-size:clamp(42px,5.5vw,72px); font-weight:900; letter-spacing:-0.045em; max-width:700px; margin-bottom:20px; }
+  .page-hero h1 span { color:var(--orange); }
+  .page-hero p { font-size:17px; line-height:1.75; color:rgba(255,255,255,0.55); max-width:540px; }
+  .page-hero-eyebrow { display:inline-flex; align-items:center; gap:12px; font-family:'Manrope',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--orange); margin-bottom:24px; }
+  .page-hero-eyebrow::before { content:''; display:block; width:36px; height:2px; background:var(--orange); }
+
+  /* PROJECT SECTIONS */
+  .project-block { padding:96px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+  .project-block:nth-child(even) { background:rgba(27,27,27,0.40); }
+  .project-block:nth-child(odd) { background:rgba(13,13,13,0.40); }
+
+  /* PROJECT HEADER */
+  .project-header { display:grid; grid-template-columns:1fr auto; align-items:flex-end; gap:32px; margin-bottom:56px; }
+  .project-number { font-family:'Manrope',sans-serif; font-weight:900; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--orange); margin-bottom:12px; opacity:0.7; }
+  .project-title { font-family:'Manrope',sans-serif; font-weight:900; font-size:clamp(32px,4vw,54px); letter-spacing:-0.04em; text-transform:uppercase; color:var(--white); line-height:1; }
+  .project-location { font-family:'Manrope',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.1em; text-transform:uppercase; color:var(--orange); margin-top:10px; }
+  .project-tags { display:flex; gap:10px; flex-wrap:wrap; align-self:flex-end; }
+  .project-tag { font-family:'Manrope',sans-serif; font-weight:700; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.12); padding:6px 14px; }
+
+  /* HERO SHOT — full-width large image */
+  .project-hero-img { width:100%; height:520px; object-fit:cover; display:block; filter:grayscale(8%) contrast(1.05); }
+
+  /* PROGRESSION GALLERY (Reading: 7 photos, empty → full) */
+  .progression-wrap { margin-top:4px; }
+  .progression-label { display:flex; align-items:center; justify-content:space-between; padding:20px 0 16px; }
+  .progression-label-text { font-family:'Manrope',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.35); }
+  .progression-label-arrow { font-family:'Manrope',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); }
+  .progression-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:4px; }
+  .progression-grid .prog-img-wrap { position:relative; overflow:hidden; }
+  .progression-grid .prog-img-wrap:first-child { grid-column:span 1; }
+  .prog-img { width:100%; height:280px; object-fit:cover; display:block; filter:grayscale(8%) contrast(1.05); transition:transform 0.5s ease; }
+  .prog-img-wrap:hover .prog-img { transform:scale(1.03); }
+  .prog-step { position:absolute; top:14px; left:14px; font-family:'Manrope',sans-serif; font-weight:800; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; padding:5px 12px; background:rgba(13,13,13,0.75); color:rgba(255,255,255,0.6); border:1px solid rgba(255,255,255,0.12); }
+  .prog-step.final { background:var(--orange); color:var(--black); border-color:var(--orange); }
+
+  /* 4-PHOTO GRID (Cardiff) */
+  .four-grid { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:270px 270px 270px; gap:4px; margin-top:4px; }
+  .four-grid .grid-img-wrap { position:relative; overflow:hidden; }
+  .four-grid .grid-img-wrap:first-child { grid-row:span 3; }
+  .grid-img { width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(8%) contrast(1.05); transition:transform 0.5s ease; }
+  .grid-img-wrap:hover .grid-img { transform:scale(1.03); }
+  .grid-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(13,13,13,0.7) 0%, transparent 50%); pointer-events:none; }
+  .grid-caption { position:absolute; bottom:18px; left:20px; font-family:'Manrope',sans-serif; font-weight:800; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.6); }
+
+  /* PROJECT STATS ROW */
+  .project-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid rgba(255,255,255,0.06); margin-top:40px; }
+  .project-stat { padding:28px 32px; border-right:1px solid rgba(255,255,255,0.06); }
+  .project-stat:last-child { border-right:none; }
+  .project-stat-label { font-family:'Manrope',sans-serif; font-weight:600; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:6px; }
+  .project-stat-value { font-family:'Manrope',sans-serif; font-weight:800; font-size:16px; letter-spacing:-0.01em; color:var(--white); }
+
+  /* CTA */
+  .cta-section { background:rgba(13,13,13,0.40); border-top:1px solid rgba(255,255,255,0.05); padding:96px 0; }
+  .cta-inner { max-width:1280px; margin:0 auto; padding:0 32px; display:flex; justify-content:space-between; align-items:center; gap:48px; }
+  .cta-text h2 { font-size:clamp(28px,3.5vw,44px); font-weight:900; letter-spacing:-0.04em; text-transform:uppercase; }
+  .cta-text p { font-size:16px; color:rgba(255,255,255,0.45); margin-top:8px; }
+  .cta-actions { display:flex; gap:12px; flex-shrink:0; flex-wrap:wrap; }
+
+  /* FOOTER */
+  footer { background:rgba(27,27,27,0.50); border-top:1px solid rgba(255,255,255,0.05); padding:64px 0 32px; }
+  .footer-inner { max-width:1280px; margin:0 auto; padding:0 32px; }
+  .footer-top { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:48px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.05); }
+  .footer-brand p { font-size:14px; line-height:1.7; color:rgba(255,255,255,0.4); margin-top:20px; max-width:280px; }
+  .footer-col-title { font-family:'Manrope',sans-serif; font-weight:800; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); margin-bottom:20px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .footer-links a { font-size:14px; color:rgba(255,255,255,0.4); text-decoration:none; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--white); }
+  .footer-contact-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:12px; }
+  .footer-contact-item svg { width:14px; height:14px; stroke:var(--orange); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; margin-top:3px; }
+  .footer-contact-item span { font-size:14px; color:rgba(255,255,255,0.4); line-height:1.5; }
+  .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:24px; flex-wrap:wrap; gap:16px; }
+  .footer-copy { font-size:12px; color:rgba(255,255,255,0.22); }
+
+  @media (max-width:1024px) {
+    .nav-links,.nav-cta { display:none; }
+    .project-header { grid-template-columns:1fr; }
+    .four-grid { grid-template-rows:200px 200px 200px; }
+    .progression-grid { grid-template-columns:1fr 1fr; }
+    .progression-grid .prog-img-wrap:first-child { grid-column:span 1; }
+    .project-stats { grid-template-columns:1fr 1fr; }
+    .project-stat:nth-child(2) { border-right:none; }
+    .footer-top { grid-template-columns:1fr 1fr; }
+    .cta-inner { flex-direction:column; align-items:flex-start; }
+  }
+  @media (max-width:640px) {
+    .section { padding:56px 0; }
+    .section-inner,.page-hero-inner { padding:0 20px; }
+    .project-hero-img { height:280px; }
+    .four-grid { grid-template-columns:1fr; grid-template-rows:auto; }
+    .four-grid .grid-img-wrap:first-child { grid-row:auto; }
+    .four-grid .grid-img-wrap { height:240px; }
+    .prog-img { height:200px; }
+    .progression-grid { grid-template-columns:1fr; }
+    .progression-grid .prog-img-wrap:first-child { grid-column:span 1; }
+    .project-stats { grid-template-columns:1fr 1fr; }
+    .footer-top { grid-template-columns:1fr; }
+    .cta-inner { padding:0 20px; }
+    .footer-inner { padding:0 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page-bg"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="brand_assests/WeFitKit Logo.jpeg" alt="WeFitKit"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn-primary nav-cta">Get A Quote</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">Our Work</div>
+    <h1>Project <span>Portfolio</span></h1>
+    <p>Every project we deliver is a testament to our team's commitment to quality, precision and pride. Here's a look at two of our recent installations.</p>
+  </div>
+</div>
+
+<!-- ================================================================
+     PROJECT 1 — HOME GYM, READING
+     Photos arranged: empty space → delivery → install → complete
+================================================================ -->
+<div class="project-block">
+  <div class="section-inner">
+
+    <div class="project-header">
+      <div>
+        <div class="project-number">Project 01</div>
+        <div class="project-title">Home Gym</div>
+        <div class="project-location">Reading, Berkshire</div>
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">Residential</span>
+        <span class="project-tag">Full Installation</span>
+        <span class="project-tag">Flooring</span>
+        <span class="project-tag">Equipment Supply</span>
+      </div>
+    </div>
+
+    <!-- Hero: the fully completed gym (best finished shot) -->
+    <img class="project-hero-img"
+      src="brand_assests/Website Base/Website Pics/Home Gym - Reading/WhatsApp Image 2026-05-30 at 00.00.25.jpeg"
+      alt="Home Gym Reading — Completed">
+
+    <!-- Progression gallery: empty → complete -->
+    <div class="progression-wrap">
+      <div class="progression-label">
+        <span class="progression-label-text">Installation Progression</span>
+        <span class="progression-label-arrow">Empty Space → Complete Build →</span>
+      </div>
+      <div class="progression-grid">
+
+        <!-- 1 — Empty space (spans 2 cols) -->
+        <div class="prog-img-wrap">
+          <img class="prog-img"
+            src="brand_assests/Website Base/Website Pics/Home Gym - Reading/WhatsApp Image 2026-05-30 at 00.00.26 (2).jpeg"
+            alt="Step 1 — Empty space">
+          <div class="prog-step">01 — Empty Space</div>
+        </div>
+
+        <!-- 2 — Floor down, delivery starting -->
+        <div class="prog-img-wrap">
+          <img class="prog-img"
+            src="brand_assests/Website Base/Website Pics/Home Gym - Reading/WhatsApp Image 2026-05-30 at 00.00.26 (3).jpeg"
+            alt="Step 2 — Flooring complete, delivery begins">
+          <div class="prog-step">02 — Delivery Day</div>
+        </div>
+
+        <!-- 3 — First equipment pieces in -->
+        <div class="prog-img-wrap">
+          <img class="prog-img"
+            src="brand_assests/Website Base/Website Pics/Home Gym - Reading/WhatsApp Image 2026-05-30 at 00.00.26 (1).jpeg"
+            alt="Step 3 — First equipment placed">
+          <div class="prog-step">03 — Equipment In</div>
+        </div>
+
+        <!-- 4 — Building up -->
+        <div class="prog-img-wrap">
+          <img class="prog-img"
+            src="brand_assests/Website Base/Website Pics/Home Gym - Reading/WhatsApp Image 2026-05-30 at 00.00.26.jpeg"
+            alt="Step 4 — Equipment building up">
+          <div class="prog-step">04 — Taking Shape</div>
+        </div>
+
+        <!-- 5 — Nearly there -->
+        <div class="prog-img-wrap">
+          <img class="prog-img"
+            src="brand_assests/Website Base/Website Pics/Home Gym - Reading/WhatsApp Image 2026-05-30 at 00.00.25 (2).jpeg"
+            alt="Step 5 — Nearly complete">
+          <div class="prog-step">05 — Nearly There</div>
+        </div>
+
+        <!-- 6 — Complete (wider shot) -->
+        <div class="prog-img-wrap">
+          <img class="prog-img"
+            src="brand_assests/Website Base/Website Pics/Home Gym - Reading/WhatsApp Image 2026-05-30 at 00.00.25 (1).jpeg"
+            alt="Step 6 — Complete installation">
+          <div class="prog-step final">06 — Complete</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="project-stats">
+      <div class="project-stat">
+        <div class="project-stat-label">Project Type</div>
+        <div class="project-stat-value">Home Gym</div>
+      </div>
+      <div class="project-stat">
+        <div class="project-stat-label">Location</div>
+        <div class="project-stat-value">Reading, Berkshire</div>
+      </div>
+      <div class="project-stat">
+        <div class="project-stat-label">Scope</div>
+        <div class="project-stat-value">Full Installation</div>
+      </div>
+      <div class="project-stat">
+        <div class="project-stat-label">Equipment</div>
+        <div class="project-stat-value">Prime &amp; Torque</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ================================================================
+     PROJECT 2 — PT GYM, CARDIFF
+================================================================ -->
+<div class="project-block">
+  <div class="section-inner">
+
+    <div class="project-header">
+      <div>
+        <div class="project-number">Project 02</div>
+        <div class="project-title">PT Gym</div>
+        <div class="project-location">Cardiff, Wales</div>
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">Commercial</span>
+        <span class="project-tag">PT Studio</span>
+        <span class="project-tag">Flooring</span>
+        <span class="project-tag">Full Fit-Out</span>
+      </div>
+    </div>
+
+    <!-- 4-photo grid: large hero left, 3 smaller right -->
+    <div class="four-grid">
+
+      <!-- Main hero — the dramatic wide shot -->
+      <div class="grid-img-wrap">
+        <img class="grid-img"
+          src="brand_assests/Website Base/Website Pics/Home Gym - Reading/PT Gym - Cardiff/WhatsApp Image 2026-05-30 at 00.05.34 (1).jpeg"
+          alt="PT Gym Cardiff — Wide shot">
+        <div class="grid-overlay"></div>
+        <div class="grid-caption">Full Floor View</div>
+      </div>
+
+      <!-- Top right — SQUAT sign detail -->
+      <div class="grid-img-wrap">
+        <img class="grid-img"
+          src="brand_assests/Website Base/Website Pics/Home Gym - Reading/PT Gym - Cardiff/WhatsApp Image 2026-05-30 at 00.05.34.jpeg"
+          alt="PT Gym Cardiff — SQUAT sign">
+        <div class="grid-overlay"></div>
+        <div class="grid-caption">Bespoke Branding</div>
+      </div>
+
+      <!-- Mid right — Strength & functional zone -->
+      <div class="grid-img-wrap">
+        <img class="grid-img"
+          src="brand_assests/Website Base/Website Pics/Home Gym - Reading/PT Gym - Cardiff/WhatsApp Image 2026-05-30 at 00.05.34 (2).jpeg"
+          alt="PT Gym Cardiff — Strength zone">
+        <div class="grid-overlay"></div>
+        <div class="grid-caption">Strength Zone</div>
+      </div>
+
+      <!-- Bottom right — Cardio area -->
+      <div class="grid-img-wrap">
+        <img class="grid-img"
+          src="brand_assests/Website Base/Website Pics/Home Gym - Reading/PT Gym - Cardiff/WhatsApp Image 2026-05-30 at 00.05.35.jpeg"
+          alt="PT Gym Cardiff — Cardio zone">
+        <div class="grid-overlay"></div>
+        <div class="grid-caption">Cardio Zone</div>
+      </div>
+
+    </div>
+
+    <!-- Stats -->
+    <div class="project-stats">
+      <div class="project-stat">
+        <div class="project-stat-label">Project Type</div>
+        <div class="project-stat-value">PT Studio</div>
+      </div>
+      <div class="project-stat">
+        <div class="project-stat-label">Location</div>
+        <div class="project-stat-value">Cardiff, Wales</div>
+      </div>
+      <div class="project-stat">
+        <div class="project-stat-label">Scope</div>
+        <div class="project-stat-value">Commercial Fit-Out</div>
+      </div>
+      <div class="project-stat">
+        <div class="project-stat-label">Flooring</div>
+        <div class="project-stat-value">Herringbone LVT</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>Ready To Start<br>Your Project?</h2>
+      <p>Get in touch today for a free consultation and quote.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-primary">Get A Quote &nbsp;→</a>
+      <a href="services.html" class="btn-secondary">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="brand_assests/WeFitKit Logo.jpeg" alt="WeFitKit" style="height:44px;width:auto;">
+        <p>Specialist gym installation and project delivery across the UK.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Commercial Installation</a></li>
+          <li><a href="services.html">Gym Flooring</a></li>
+          <li><a href="services.html">Equipment Relocation</a></li>
+          <li><a href="services.html">Project Management</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.32 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 5.67 5.67l1.95-1.36a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>0161 660 1002</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@wefitkit.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 WeFitKit Ltd. All Rights Reserved.</span>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;">
+        <a href="privacy-policy.html" style="font-size:12px;color:rgba(255,255,255,0.22);text-decoration:none;">Privacy Policy</a>
+        <a href="terms-and-conditions.html" style="font-size:12px;color:rgba(255,255,255,0.22);text-decoration:none;">Terms &amp; Conditions</a>
+        <a href="cookie-policy.html" style="font-size:12px;color:rgba(255,255,255,0.22);text-decoration:none;">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

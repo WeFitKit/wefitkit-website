@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — WeFitKit Gym Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root { --orange:#FF8A00; --black:#0D0D0D; --dark:#141414; --dark2:#1B1B1B; --grey:#333333; --white:#FFFFFF; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { background-color:var(--black); color:var(--white); font-family:'Inter',sans-serif; line-height:1.7; -webkit-font-smoothing:antialiased; }
+  .page-bg { position:fixed; inset:0; z-index:-1; background:url('brand_assests/Website Base/Website Pics/WeFitKit Background/WhatsApp Image 2026-05-29 at 22.16.17.jpeg') center center / cover no-repeat; pointer-events:none; }
+  h1,h2,h3,h4 { font-family:'Manrope',sans-serif; font-weight:800; line-height:1.1; letter-spacing:-0.03em; }
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(13,13,13,0.96); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); }
+  .nav-inner { max-width:1280px; margin:0 auto; padding:0 32px; height:72px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo img { height:48px; width:auto; mix-blend-mode:screen; }
+  img[src*="WeFitKit Logo"] { mix-blend-mode:screen; }
+  .nav-links { display:flex; align-items:center; gap:36px; list-style:none; }
+  .nav-links a { font-family:'Manrope',sans-serif; font-weight:600; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.65); text-decoration:none; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--white); }
+  .nav-links a.active { color:var(--orange); }
+  .btn-primary { display:inline-flex; align-items:center; gap:8px; background:var(--orange); color:var(--black); font-family:'Manrope',sans-serif; font-weight:800; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; padding:13px 28px; border:none; cursor:pointer; transition:background 0.2s,transform 0.15s; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px)); }
+  .btn-primary:hover { background:#ff9f2e; transform:translateY(-1px); }
+  .btn-secondary { display:inline-flex; align-items:center; gap:8px; background:transparent; color:var(--white); font-family:'Manrope',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; padding:12px 28px; border:1.5px solid rgba(255,255,255,0.22); cursor:pointer; transition:border-color 0.2s,transform 0.15s; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px)); }
+  .btn-secondary:hover { border-color:rgba(255,255,255,0.6); transform:translateY(-1px); }
+  .section { padding:96px 0; }
+  .section-inner { max-width:1280px; margin:0 auto; padding:0 32px; }
+  .section-label { display:inline-flex; align-items:center; gap:10px; font-family:'Manrope',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--orange); margin-bottom:18px; }
+  .section-label::before { content:''; display:block; width:24px; height:2px; background:var(--orange); }
+  .section-title { font-size:clamp(24px,2.8vw,38px); font-weight:900; letter-spacing:-0.04em; text-transform:uppercase; }
+
+  .page-hero { padding:160px 0 80px; background:rgba(13,13,13,0.40); position:relative; overflow:hidden; }
+  .page-hero::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--orange); }
+  .page-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,138,0,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,138,0,0.02) 1px,transparent 1px); background-size:80px 80px; pointer-events:none; }
+  .page-hero-inner { max-width:1280px; margin:0 auto; padding:0 32px; }
+  .page-hero h1 { font-size:clamp(40px,5.5vw,72px); font-weight:900; letter-spacing:-0.045em; max-width:700px; margin-bottom:20px; }
+  .page-hero h1 span { color:var(--orange); }
+  .page-hero p { font-size:17px; line-height:1.75; color:rgba(255,255,255,0.55); max-width:540px; }
+  .page-hero-eyebrow { display:inline-flex; align-items:center; gap:12px; font-family:'Manrope',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--orange); margin-bottom:24px; }
+  .page-hero-eyebrow::before { content:''; display:block; width:36px; height:2px; background:var(--orange); }
+
+  /* WHO WE ARE */
+  .who-section { background:rgba(27,27,27,0.40); }
+  .who-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+  .who-image { position:relative; height:520px; }
+  .who-image img { width:100%; height:100%; object-fit:cover; filter:grayscale(15%) contrast(1.05); }
+  .who-image::before { content:''; position:absolute; top:16px; left:16px; right:-16px; bottom:-16px; border:1px solid rgba(255,138,0,0.15); z-index:-1; pointer-events:none; }
+  .who-text { }
+  .who-text p { font-size:16px; line-height:1.8; color:rgba(255,255,255,0.6); margin-top:24px; }
+  .who-text p + p { margin-top:16px; }
+
+  /* ETHOS */
+  .ethos-section { background:rgba(13,13,13,0.40); }
+  .ethos-grid { display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:start; }
+  .ethos-points { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; border:1px solid rgba(255,255,255,0.05); margin-top:0; }
+  .ethos-point { padding:40px 32px; border-right:1px solid rgba(255,255,255,0.05); }
+  .ethos-point:last-child { border-right:none; }
+  .ethos-point-icon { width:32px; height:32px; margin-bottom:20px; }
+  .ethos-point-icon svg { width:20px; height:20px; stroke:var(--orange); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .ethos-point-title { font-family:'Manrope',sans-serif; font-weight:800; font-size:16px; letter-spacing:-0.01em; color:var(--white); margin-bottom:10px; }
+  .ethos-point-desc { font-size:14px; line-height:1.65; color:rgba(255,255,255,0.45); }
+
+  /* VALUES */
+  .values-section { background:rgba(27,27,27,0.40); }
+  .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.05); margin-top:56px; border:1px solid rgba(255,255,255,0.05); }
+  .value-item { background:var(--dark2); padding:48px 36px; transition:background 0.2s; }
+  .value-item:hover { background:var(--grey); }
+  .value-num { font-family:'Manrope',sans-serif; font-weight:900; font-size:11px; letter-spacing:0.14em; color:var(--orange); opacity:0.5; margin-bottom:20px; }
+  .value-title { font-family:'Manrope',sans-serif; font-weight:800; font-size:20px; letter-spacing:-0.025em; color:var(--white); margin-bottom:12px; }
+  .value-desc { font-size:14px; line-height:1.65; color:rgba(255,255,255,0.45); }
+
+  /* WHY QUALITIES */
+  .qualities-section { background:rgba(13,13,13,0.40); }
+  .qualities-strip { display:flex; border:1px solid rgba(255,255,255,0.05); margin-top:48px; overflow:hidden; }
+  .quality-item { flex:1; padding:36px 28px; border-right:1px solid rgba(255,255,255,0.05); text-align:center; transition:background 0.2s; }
+  .quality-item:last-child { border-right:none; }
+  .quality-item:hover { background:var(--dark2); }
+  .quality-title { font-family:'Manrope',sans-serif; font-weight:800; font-size:15px; letter-spacing:-0.01em; color:var(--white); margin-bottom:6px; }
+  .quality-line { width:24px; height:2px; background:var(--orange); margin:0 auto; }
+
+  /* PULLQUOTE */
+  .pullquote-section { background:rgba(27,27,27,0.40); padding:80px 0; }
+  .pullquote-inner { max-width:1280px; margin:0 auto; padding:0 32px; text-align:center; }
+  .pullquote { font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(22px,3vw,36px); letter-spacing:-0.03em; color:var(--white); max-width:860px; margin:0 auto; line-height:1.3; }
+  .pullquote span { color:var(--orange); }
+
+  .cta-section { background:rgba(13,13,13,0.40); border-top:1px solid rgba(255,255,255,0.05); padding:96px 0; }
+  .cta-inner { max-width:1280px; margin:0 auto; padding:0 32px; display:flex; justify-content:space-between; align-items:center; gap:48px; }
+  .cta-text h2 { font-size:clamp(30px,4vw,48px); font-weight:900; letter-spacing:-0.04em; }
+  .cta-text p { font-size:16px; color:rgba(255,255,255,0.45); margin-top:8px; }
+  .cta-actions { display:flex; gap:12px; flex-shrink:0; flex-wrap:wrap; }
+
+  footer { background:rgba(27,27,27,0.50); border-top:1px solid rgba(255,255,255,0.05); padding:64px 0 32px; }
+  .footer-inner { max-width:1280px; margin:0 auto; padding:0 32px; }
+  .footer-top { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:48px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.05); }
+  .footer-brand p { font-size:14px; line-height:1.7; color:rgba(255,255,255,0.4); margin-top:20px; max-width:280px; }
+  .footer-col-title { font-family:'Manrope',sans-serif; font-weight:800; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); margin-bottom:20px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .footer-links a { font-size:14px; color:rgba(255,255,255,0.4); text-decoration:none; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--white); }
+  .footer-contact-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:12px; }
+  .footer-contact-item svg { width:14px; height:14px; stroke:var(--orange); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; margin-top:3px; }
+  .footer-contact-item span { font-size:14px; color:rgba(255,255,255,0.4); line-height:1.5; }
+  .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:24px; flex-wrap:wrap; gap:16px; }
+  .footer-copy { font-size:12px; color:rgba(255,255,255,0.22); }
+
+  @media (max-width:1024px) {
+    .nav-links,.nav-cta { display:none; }
+    .who-grid { grid-template-columns:1fr; gap:40px; }
+    .who-image { height:360px; }
+    .ethos-grid { grid-template-columns:1fr; gap:40px; }
+    .ethos-points { grid-template-columns:1fr; }
+    .ethos-point { border-right:none; border-bottom:1px solid rgba(255,255,255,0.05); }
+    .ethos-point:last-child { border-bottom:none; }
+    .values-grid { grid-template-columns:1fr 1fr; }
+    .qualities-strip { flex-wrap:wrap; }
+    .quality-item { flex:1 1 50%; border-right:none; border-bottom:1px solid rgba(255,255,255,0.05); }
+    .footer-top { grid-template-columns:1fr 1fr; }
+    .cta-inner { flex-direction:column; align-items:flex-start; }
+  }
+  @media (max-width:640px) {
+    .section { padding:56px 0; }
+    .section-inner { padding:0 20px; }
+    .page-hero-inner { padding:0 20px; }
+    .values-grid { grid-template-columns:1fr; }
+    .quality-item { flex:1 1 100%; }
+    .footer-top { grid-template-columns:1fr; }
+    .cta-inner { padding:0 20px; }
+    .footer-inner { padding:0 20px; }
+    .pullquote-inner { padding:0 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page-bg"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="brand_assests/WeFitKit Logo.jpeg" alt="WeFitKit"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="index.html">Projects</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn-primary nav-cta">Get A Quote</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">About WeFitKit</div>
+    <h1>We Build<br>More Than <span>Gyms</span></h1>
+    <p>We build environments that inspire people, elevate performance and stand the test of time.</p>
+  </div>
+</div>
+
+<section class="section who-section">
+  <div class="section-inner">
+    <div class="who-grid">
+      <div class="who-image">
+        <img src="brand_assests/Website Base/Website Pics/WhatsApp Image 2026-05-29 at 21.38.40 (1).jpeg" alt="WeFitKit completed gym installation">
+      </div>
+      <div class="who-text">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">Experts. Partners.<br>Problem Solvers.</h2>
+        <p>WeFitKit is a specialist fitness installation and project delivery company focused on creating exceptional fitness environments across the UK.</p>
+        <p>We combine deep industry experience with a hands-on approach and a genuine pride in the work we deliver. Every project — from a single PT studio to a large-scale commercial facility — receives the same level of commitment and care.</p>
+        <p>We don't just install equipment. We partner with operators, developers and designers to deliver projects that are on time, on budget, and built to last.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section ethos-section">
+  <div class="section-inner">
+    <div style="margin-bottom:56px;">
+      <div class="section-label">Our Ethos</div>
+      <h2 class="section-title">Built On Experience.<br>Driven By Results.</h2>
+    </div>
+    <div class="ethos-points">
+      <div class="ethos-point">
+        <div class="ethos-point-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg>
+        </div>
+        <div class="ethos-point-title">We Do It Right</div>
+        <div class="ethos-point-desc">Quality in every detail. We take the time to do things properly, not just quickly. Standards matter to us — because they should matter to you.</div>
+      </div>
+      <div class="ethos-point">
+        <div class="ethos-point-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="ethos-point-title">We Keep It Real</div>
+        <div class="ethos-point-desc">Clear communication and honest advice throughout every project. You'll always know where things stand with WeFitKit.</div>
+      </div>
+      <div class="ethos-point">
+        <div class="ethos-point-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="ethos-point-title">We Deliver More</div>
+        <div class="ethos-point-desc">Going the extra mile isn't a slogan — it's how we operate. We look for ways to exceed expectations on every project we take on.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pullquote-section">
+  <div class="pullquote-inner">
+    <div class="pullquote">"Professional. Reliable. Straightforward. Experienced. <span>Solution Focused.</span>"</div>
+  </div>
+</div>
+
+<section class="section values-section">
+  <div class="section-inner">
+    <div class="section-label">Our Values</div>
+    <h2 class="section-title">What We Stand For</h2>
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="value-num">01</div>
+        <div class="value-title">Raise The Standard</div>
+        <div class="value-desc">We hold ourselves to a higher standard on every job — because delivering outstanding quality is what sets us apart from the rest.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">02</div>
+        <div class="value-title">Empower People</div>
+        <div class="value-desc">We create spaces that motivate and inspire the people who use them. Every project has a real impact on real lives.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">03</div>
+        <div class="value-title">Build The Future</div>
+        <div class="value-desc">We look ahead — investing in our team, our methods and our service to ensure we remain at the forefront of the industry.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section qualities-section">
+  <div class="section-inner">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">The WeFitKit Difference</h2>
+    <div class="qualities-strip">
+      <div class="quality-item">
+        <div class="quality-title">Experienced</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px;margin-bottom:16px;">Proven expertise across commercial and specialist installations.</div>
+        <div class="quality-line"></div>
+      </div>
+      <div class="quality-item">
+        <div class="quality-title">Reliable</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px;margin-bottom:16px;">We show up, we deliver, and we do what we say we'll do.</div>
+        <div class="quality-line"></div>
+      </div>
+      <div class="quality-item">
+        <div class="quality-title">Flexible</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px;margin-bottom:16px;">Adaptable to project demands, timelines and client requirements.</div>
+        <div class="quality-line"></div>
+      </div>
+      <div class="quality-item">
+        <div class="quality-title">Passionate</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px;margin-bottom:16px;">We care about the outcome of every project we're involved with.</div>
+        <div class="quality-line"></div>
+      </div>
+      <div class="quality-item">
+        <div class="quality-title">Accountable</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:6px;margin-bottom:16px;">We take ownership of our work from start to finish.</div>
+        <div class="quality-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>Let's Build Something<br>Amazing Together</h2>
+      <p>Get in touch to discuss your project with our team.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-primary">Get In Touch</a>
+      <a href="services.html" class="btn-secondary">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="brand_assests/WeFitKit Logo.jpeg" alt="WeFitKit" style="height:44px;width:auto;">
+        <p>Specialist gym installation and project delivery across the UK.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Commercial Installation</a></li>
+          <li><a href="services.html">Gym Flooring</a></li>
+          <li><a href="services.html">Equipment Relocation</a></li>
+          <li><a href="services.html">Project Management</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.32 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 5.67 5.67l1.95-1.36a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>0161 660 1002</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@wefitkit.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 WeFitKit Ltd. All Rights Reserved.</span>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;">
+        <a href="privacy-policy.html" style="font-size:12px;color:rgba(255,255,255,0.22);text-decoration:none;">Privacy Policy</a>
+        <a href="terms-and-conditions.html" style="font-size:12px;color:rgba(255,255,255,0.22);text-decoration:none;">Terms &amp; Conditions</a>
+        <a href="cookie-policy.html" style="font-size:12px;color:rgba(255,255,255,0.22);text-decoration:none;">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
